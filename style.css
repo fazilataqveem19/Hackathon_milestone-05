@@ -1,356 +1,238 @@
-/* Initially, the CV form is visible, and the CV template is hidden */
-#cv-form {
-    display: block;
-}
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-#cv-template {
-    display: none;
-}
-
-/* Profile image */
-.myimg {
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border: 5px solid #007bff; /* Add a border for a pop effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.myimg:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
-}
-
-/* Background styling */
-.background {
-    background: linear-gradient(135deg, #f0f8ff, #e0f7fa, #b9fbc0);
-    padding: 30px;
-    border-radius: 20px; /* Rounded corners */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    background-size: 300% 300%; /* For animation effect */
-    animation: gradientAnimation 15s ease infinite; /* Animate gradient */
-    border: 1px solid #ddd; /* Subtle border */
-}
-
-/* Gradient animation */
-@keyframes gradientAnimation {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
-
-/* Typography */
-h1, h2, h3, p {
+/* Global Styling */
+body {
     font-family: 'Poppins', sans-serif;
-    color: #333;
-    font-weight: 600; /* Medium weight for better readability */
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
 }
 
-/* Remove default list styling */
-ul {
-    list-style-type: none;
-    padding-left: 0;
-    animation: ulFadeIn 1s ease-in-out; /* Animate ul */
-}
-
-/* List item styling */
-li {
-    margin-bottom: 10px;
-    padding: 15px;
-    border-left: 6px solid #007bff; /* Thicker color accent */
-    background-color: #f9f9f9; /* Light grey background */
-    font-weight: 500; /* Medium weight for list items */
-    transition: background-color 0.3s ease, border-left-color 0.3s ease;
-    border-radius: 8px; /* Rounded corners for list items */
-}
-
-/* List item hover effect */
-li:hover {
-    background-color: #e0f7fa; /* Light blue background on hover */
-    border-left-color: #004d40; /* Darker accent color on hover */
-}
-
-/* Container for CV content */
-.cv-container {
-    margin: 20px;
-    padding: 20px;
-    border: 2px solid #007bff;
-    border-radius: 15px;
-    background-color: #ffffff;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-}
-
-.cv-container:hover {
-    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
-    transform: translateY(-5px); /* Slight lift effect */
-}
-
-/* Button styles */
-button {
-    padding: 12px 24px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600; /* Medium weight for button text */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-}
-
-button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px); /* Slight lift effect */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
-}
-
-button:active {
-    background-color: #004494;
-    transform: translateY(0); /* Reset lift effect */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Reset shadow on click */
-}
-
-/* Responsive design adjustments */
-@media (max-width: 768px) {
-    .cv-container {
-        margin: 10px;
-        padding: 15px;
-    }
-
-    .myimg {
-        width: 150px;
-        height: 150px;
-    }
-
-    button {
-        padding: 8px 16px;
-        font-size: 14px;
-    }
-}
-
-/* Print CV button styles */
-#print-cv-button {
-    padding: 12px 24px;
-    background-color: #ff5722; /* Bold color for prominence */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600; /* Medium weight for button text */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-}
-
-/* Print button hover effect */
-#print-cv-button:hover {
-    background-color: #e64a19; /* Darker shade for hover effect */
-    transform: translateY(-2px); /* Slight lift effect */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
-}
-
-/* Print button active effect */
-#print-cv-button:active {
-    background-color: #d84315; /* Even darker shade for active state */
-    transform: translateY(0); /* Reset lift effect */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Reset shadow on click */
-}
-/* Initially, the CV form is visible, and the CV template is hidden */
-#cv-form {
-    display: block;
-}
-
-#cv-template {
-    display: none;
-}
-
-/* Profile image */
-.myimg {
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border: 5px solid #007bff; /* Add a border for a pop effect */
-    transition: transform 0.3s ease-in-out;
-}
-
-.myimg:hover {
-    transform: scale(1.05); /* Slight zoom on hover */
-}
-
-/* Background styling */
-.background {
-    background: linear-gradient(135deg, #f0f8ff, #e0f7fa, #b9fbc0);
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-size: 300% 300%; /* For animation effect */
-    animation: gradientAnimation 10s ease infinite; /* Animate gradient */
-}
-
-/* Gradient animation */
-@keyframes gradientAnimation {
-    0% { background-position: 0% 0%; }
-    50% { background-position: 100% 100%; }
-    100% { background-position: 0% 0%; }
-}
-
-/* Typography */
-h1, h2, h3, p {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    font-weight: bold; /* Make all text bold */
-}
-
-/* Container for resume generator page */
+/* Container */
 .container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 15px;
-    background-color: #f5f5f5; /* Light background color for the container */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
 }
 
-/* Header styling */
-h1 {
-    color: #007bff;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+h1, h3 {
+    font-weight: 700;
+    color: #2C3E50;
 }
 
-/* Subheading styling */
 p {
-    color: #555;
+    color: #7F8C8D;
+    font-size: 1rem;
+}
+
+/* Form Section */
+#cv-form {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+#cv-form h1 {
+    font-size: 2.5rem;
+    color: #2980b9;
+}
+
+#cv-form p {
     font-size: 1.2rem;
     margin-bottom: 20px;
 }
 
-/* Column styling */
-.col-md-6 {
-    padding: 15px;
-}
-
-/* Personal Information Column */
-.col-md-6:first-child {
-    border-right: 1px solid #ddd; /* Border between columns */
-    padding-right: 30px;
-}
-
-/* Professional Information Column */
-.col-md-6:last-child {
-    padding-left: 30px;
-}
-
-/* Form group styling */
 .form-group {
     margin-bottom: 15px;
 }
 
-/* Label styling */
 .form-group label {
-    font-weight: bold;
-    color: #333;
-    display: block;
-    margin-bottom: 5px;
+    font-weight: 600;
+    color: #2C3E50;
 }
 
-/* Input and textarea styling */
 .form-control {
-    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 1rem;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #D3D3D3;
+    box-shadow: none;
 }
 
 .form-control:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
 
-/* Button styling */
-button {
-    padding: 12px 20px;
-    background-color: #007bff;
+.btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.btn-sm {
+    font-size: 0.8rem;
+    padding: 6px 15px;
+}
+
+/* CV Template Styling */
+#cv-template {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.background {
+    background-color: #2C3E50;
     color: white;
+}
+
+.myimg {
+    border-radius: 50%;
+    margin-bottom: 20px;
+    width: 150px; 
+    height: 150px; 
+    object-fit: cover; 
+}
+
+#cv-template h1 {
+    font-size: 2.5rem;
+    color: #2980b9;
+    text-align: center;
+}
+
+.card {
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.card-header {
+    background-color: #2980b9;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.card-body {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 0 0 10px 10px;
+}
+
+/* Custom bullet points for sections */
+#weT, #aqT, #skillsT {
+    list-style: none; 
+    padding-left: 0;
+    color: #2C3E50;
+}
+
+#weT li, #aqT li, #skillsT li {
+    padding: 5px 0;
+    border-bottom: 1px solid #D3D3D3; 
+    display: flex;
+    align-items: center;
+}
+
+#weT li::before, #aqT li::before, #skillsT li::before {
+    content: '•'; 
+    font-size: 1.5rem;
+    color: #2980b9;
+    margin-right: 10px;
+}
+
+/* Buttons */
+button {
+    font-size: 1rem;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 600; /* Medium weight for button text */
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px); /* Slight lift effect */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+    background-color: #2980b9;
 }
 
-button:active {
-    background-color: #004494;
-    transform: translateY(0); /* Reset lift effect */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Reset shadow on click */
+/* Print Button */
+.btn.background {
+    background-color: #2C3E50; 
+    border-color: #2C3E50; 
+    color: #fff;
+    font-size: 1rem; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    transition: background-color 0.3s ease;
+    width: 100%; 
+    max-width: 200px; 
 }
 
-/* Add new field button styling */
-#weAddButton, #aqAddButton, #skillsAddButton {
-    margin-top: 10px;
+@media print {
+    /* Hide print button and form when printing */
+    .btn.background, #cv-form {
+        display: none; 
+    }
+
+    /* Ensure the full CV layout is shown in the PDF */
+    body {
+        background-color: white;
+    }
+
+    #cv-template {
+        page-break-inside: avoid;
+    }
+
+    /* Page break for long content */
+    .card {
+        page-break-inside: avoid;
+    }
 }
 
-#weAddButton button, #aqAddButton button, #skillsAddButton button {
-    padding: 8px 16px;
-    font-size: 14px;
+.btn.background:hover {
+    background-color: #1a242f; 
 }
 
-/* Print CV button styles */
-#print-cv-button {
-    padding: 12px 24px;
-    background-color: #ff5722; /* Bold color for prominence */
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold; /* Make button text bold */
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-}
-
-/* Hover effect */
-#print-cv-button:hover {
-    background-color: #e64a19; /* Darker shade for hover effect */
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
-/* Active effect */
-#print-cv-button:active {
-    background-color: #d84315; /* Even darker shade for active state */
-    transform: translateY(0); /* Reset lift effect */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
-}
-
-/* Responsive design adjustments */
+/* Responsive Design for Button */
 @media (max-width: 768px) {
-    .col-md-6 {
+    .btn.background {
+        font-size: 0.9rem; 
+        padding: 8px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
         padding: 10px;
-        border-right: none;
     }
 
-    .col-md-6:first-child {
-        padding-right: 0;
+    h1 {
+        font-size: 2rem;
     }
 
-    .col-md-6:last-child {
-        padding-left: 0;
+    p {
+        font-size: 0.9rem;
     }
 
-    button {
-        padding: 8px 16px;
-        font-size: 14px;
+    .card-body {
+        padding: 15px;
+    }
+
+    #cv-template h1 {
+        font-size: 2rem;
     }
 }
